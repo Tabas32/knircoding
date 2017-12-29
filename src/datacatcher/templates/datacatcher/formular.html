@@ -1,6 +1,38 @@
 {% extends "datacatcher/form.html" %}
+{% load static %}
 {% block content %}
-<p>
-Tu bude formular
-</p>
+<audio controls>
+		<source src="{% static "datacatcher\audio_samples\sample1.wav" %}" type="audio/wav">
+Browser doesn't support audio.
+</audio>
+
+<form>
+	Farba:<br>
+	{% for i in "xxxxxxxxxxxxxxx" %}
+	<input type="radio" name="color" value="{{forloop.counter}}">{{ forloop.counter }}</input>
+	{% endfor %}
+
+	<br><br>
+	Emocia:<br>
+	<input type="radio" name="emotion" value"1">vášnivá, vzrušujúca, istá, búrlivá, hlučná</input><br>
+	<input type="radio" name="emotion" value"2">veselá, zábavná, sladká, priateľská / dobrá</input><br>
+	<input type="radio" name="emotion" value"3">dojímavá, túžobná, horkosladká, jesenná, zamyslená</input><br>
+	<input type="radio" name="emotion" value"4">humorná, hlúpa, rozkošná, nepredvídateľná, náladová, vtipná</input><br>
+	<input type="radio" name="emotion" value"5">agresívna, ohnivá, napätá / úzkostná, intenzívna, prchká</input>
+
+	<br><br>
+	Obrazok (skica):<br>
+	<div id="canvasDiv"></div>
+	<button id="clearCanvas" type="button">Clear</button>
+	<button id="saveCanvas" type="button">Save</button>
+
+	<br><br>
+	Obrazok (url):<br>
+	<input type="text" name="imageUrl"></input>
+
+	<br><br>
+	<input type="submit"></input>
+</form>
+
+
 {% endblock %}
